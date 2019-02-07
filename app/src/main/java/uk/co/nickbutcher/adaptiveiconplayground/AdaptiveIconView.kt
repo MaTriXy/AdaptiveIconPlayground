@@ -119,8 +119,8 @@ class AdaptiveIconView(
         background.eraseColor(Color.TRANSPARENT)
         foreground.eraseColor(Color.TRANSPARENT)
         val c = Canvas()
-        rasterize(icon.background, background, c)
-        rasterize(icon.foreground, foreground, c)
+        icon.background?.let { rasterize(it, background, c) }
+        icon.foreground?.let { rasterize(it, foreground, c) }
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
